@@ -2,7 +2,7 @@
 const hacker1 = 'Carla'; 
 console.log (`The driver's name is ${hacker1}`); 
 
-const hacker2 = 'María'; 
+const hacker2 = 'Maria'; 
 console.log (`The navigator's name is  ${hacker2}`);
 
 // Iteration 2: Conditionals
@@ -38,25 +38,23 @@ for ( let j = hacker2.length-1; j >= 0; j--){
 console.log(upsideDown);
 
 //Lexicographical
-let letter1 = hacker1[0];
-let letter2 = hacker2[0];
-let equal = 1;
-let stopper = 0;
 
-if (letter1 === undefined || letter2 === undefined) {
+let stopper = 0;
+let equal; 
+if (hacker1.length === 0|| hacker2 === 0) {
     console.log('Input error: not enough arguments.'); 
 } else {
     for (let k = 0; stopper === 0 && k < hacker1.length && k < hacker2.length; k++) {
         
-        letter1 = hacker1[k];
-        letter2 = hacker2[k];
+        let letter1 = hacker1[k];
+        let letter2 = hacker2[k];
 
-        equal = letter1.localeCompare(letter2, undefined, { sensitivity: 'case' });
+        equal = letter1.localeCompare(letter2, 'en', { sensitivity: 'case' });
         
-        if (equal < 0) {
+        if (equal > 0) {
             console.log('Yo, the navigator goes first, definitely.');
             stopper = 1;
-        } else if (equal > 0) {
+        } else if (equal < 0) {
             console.log("The driver's name goes first.");
             stopper = 1;
         }
