@@ -69,3 +69,31 @@ if (hacker1.length === 0|| hacker2 === 0) {
         }
     }
 }
+
+// Palindrome
+function isLetter(char) {
+    return /^[a-zA-Z]$/.test(char);
+}
+
+function checkPalindrome (phraseToCheck){
+    const phrase = phraseToCheck.toLowerCase();
+    let cleanphrase = '';
+    for (let s = 0; s < phrase.length; s++){
+        const letter = phrase[s];
+        if (isLetter(letter)){
+            cleanphrase += letter; 
+        }
+    }
+    let reversed = '';
+    for (let a = cleanphrase.length-1; a >= 0; a--){
+        const letter3 = cleanphrase[a]; 
+        reversed += letter3;
+    }
+    if (reversed === cleanphrase){
+        return ("It is a palindrome")
+    }
+    else {
+        return ("It is not a palindrome")
+    }
+}
+console.log(checkPalindrome("Was it a car or a cat I saw?"));
